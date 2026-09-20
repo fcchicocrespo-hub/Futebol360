@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futebol 360</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f5f8;
+  color:#111;
+}
+
+header{
+  background:#071a35;
+  color:white;
+  padding:22px 18px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#25d366;
+}
+
+nav{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  margin-top:18px;
+}
+
+nav button{
+  border:0;
+  background:#18365d;
+  color:white;
+  padding:10px 15px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+
+nav button:hover{
+  background:#25d366;
+  color:#071a35;
+}
+
+.hero{
+  background:linear-gradient(135deg,#071a35,#1261a0);
+  color:white;
+  padding:35px 20px;
+}
+
+.hero h1{
+  font-size:36px;
+  margin:0 0 10px;
+}
+
+.hero p{
+  font-size:17px;
+  opacity:.9;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+
+.section-title{
+  margin-top:10px;
+  font-size:25px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 3px 12px #0001;
+}
+
+.card h3{
+  margin-top:0;
+}
+
+.live{
+  color:#e53935;
+  font-weight:bold;
+}
+
+.match{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:1px solid #eee;
+  padding:13px 0;
+}
+
+.team{
+  font-weight:bold;
+}
+
+.score{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.news{
+  border-left:5px solid #25d366;
+  margin-bottom:12px;
+}
+
+.button{
+  border:0;
+  background:#25d366;
+  color:#071a35;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+footer{
+  margin-top:30px;
+  background:#071a35;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+#info{
+  display:none;
+  background:white;
+  margin-top:15px;
+  padding:18px;
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">⚽ Futebol<span>360</span></div>
+
+  <nav>
+    <button onclick="mostrar('inicio')">Início</button>
+    <button onclick="mostrar('jogos')">Jogos</button>
+    <button onclick="mostrar('noticias')">Notícias</button>
+    <button onclick="mostrar('classificacao')">Classificação</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Futebol 360</h1>
+    <p>O teu espaço para resultados, jogos, notícias e futebol.</p>
+    <button class="button" onclick="mostrar('jogos')">Ver jogos ⚽</button>
+  </div>
+</section>
+
+<main class="container">
+
+<section id="inicio">
+  <h2 class="section-title">🔥 Destaques</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🔴 Resultados em direto</h3>
+      <p>Acompanha os jogos e consulta os resultados.</p>
+      <button class="button" onclick="mostrar('jogos')">Ver jogos</button>
+    </div>
+
+    <div class="card">
+      <h3>📰 Notícias</h3>
+      <p>As principais novidades do mundo do futebol.</p>
+      <button class="button" onclick="mostrar('noticias')">Ver notícias</button>
+    </div>
+
+    <div class="card">
+      <h3>🏆 Classificações</h3>
+      <p>Consulta as tabelas das competições.</p>
+      <button class="button" onclick="mostrar('classificacao')">Ver tabelas</button>
+    </div>
+  </div>
+</section>
+
+<section id="jogos">
+  <h2 class="section-title">🔴 Jogos</h2>
+
+  <div class="card">
+    <p class="live">● EM DIRETO / EXEMPLO</p>
+
+    <div class="match">
+      <span class="team">Portugal</span>
+      <span class="score">2 - 1</span>
+      <span>🇵🇹</span>
+    </div>
+
+    <div class="match">
+      <span class="team">Real Madrid</span>
+      <span class="score">1 - 0</span>
+      <span>⚪</span>
+    </div>
+
+    <div class="match">
+      <span class="team">Barcelona</span>
+      <span class="score">2 - 2</span>
+      <span>🔵🔴</span>
+    </div>
+  </div>
+
+  <div id="info">
+    ⚠️ Estes são dados de demonstração. Mais tarde podemos ligar o Futebol 360 a uma fonte de resultados reais.
+  </div>
+
+  <button class="button" onclick="document.getElementById('info').style.display='block'">
+    ℹ️ Informação
+  </button>
+</section>
+
+<section id="noticias">
+  <h2 class="section-title">📰 Últimas notícias</h2>
+
+  <div class="card news">
+    <h3>⚽ Mercado de transferências</h3>
+    <p>Fica atento às principais movimentações do futebol.</p>
+  </div>
+
+  <div class="card news">
+    <h3>🏆 Competições</h3>
+    <p>Resultados e novidades das principais competições.</p>
+  </div>
+
+  <div class="card news">
+    <h3>🌍 Futebol internacional</h3>
+    <p>Acompanha o futebol de vários países.</p>
+  </div>
+</section>
+
+<section id="classificacao">
+  <h2 class="section-title">🏆 Classificação</h2>
+
+  <div class="card">
+    <div class="match">
+      <span>1. Portugal</span>
+      <b>10 pts</b>
+    </div>
+
+    <div class="match">
+      <span>2. Espanha</span>
+      <b>8 pts</b>
+    </div>
+
+    <div class="match">
+      <span>3. França</span>
+      <b>7 pts</b>
+    </div>
+
+    <div class="match">
+      <span>4. Alemanha</span>
+      <b>5 pts</b>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>⚽ Futebol 360</b>
+  <p>O futebol visto de todos os ângulos.</p>
+  <small>Projeto criado por Futebol 360</small>
+</footer>
+
+<script>
+function mostrar(id){
+  document.querySelectorAll('main section').forEach(function(sec){
+    sec.style.display='none';
+  });
+
+  document.getElementById(id).style.display='block';
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+}
+
+mostrar('inicio');
+</script>
+
+</body>
+</html>
